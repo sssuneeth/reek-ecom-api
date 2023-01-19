@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-!s52@!vqb=7#6d@4@jr&pl&k+sfp=g1e_2**vme^rmp!#ofncq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['reek-ecom-backend.onrender.com/']
+ALLOWED_HOSTS = ['.reek-ecom-backend.onrender.com/']
 
 
 # Application definition
