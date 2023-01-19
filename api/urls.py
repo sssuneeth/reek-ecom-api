@@ -34,6 +34,7 @@ urlpatterns = [
     #user paths
     path('user/', views.getUser.as_view()),
     path('editprofile/', views.editProfile.as_view()),
+    path('guestuser/', views.GuestUser.as_view()),
 
     #payment
     path('checkout/', views.PaymentView.as_view()),

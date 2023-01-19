@@ -1,6 +1,8 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+import secrets
+
 #import Item serilizer
 from .serializers import ItemSerializer, CatsSerializer, UserSerializer, BasketItemSerializer, BasketSerializer, SavedItemSerliazer, ShippingAddressSerilaizer
 
@@ -271,3 +273,23 @@ class PaymentView(APIView):
         )
 
         return Response('Order placed successfully')
+
+# create guest user
+class GuestUser(APIView):
+    def get(self, request):
+        random_email = f"{secrets.token_hex(8)}@gmail.com"
+        random_pass = secrets.token_hex(5)
+
+        data ={
+            'email': random_email,
+            'password': random_pass
+        }
+
+        serilizer = UserSerializer(data=data, many=False)
+        serilizer.is_valid(raise_exception=True)
+        serilizer.save()
+
+        return Response({
+            'email': random_email,
+            'password': random_pass
+        })
